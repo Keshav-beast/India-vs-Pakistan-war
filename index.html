@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVE MISSION: DEFEND INDIA</title>
+    <!-- Add Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Ad Container */
+        .ad-container {
+            text-align: center; /* Center the ad */
+            margin: 15px auto; /* Add some vertical space */
+            max-width: 468px; /* Match ad width */
+        }
+
+
+        /* PNG Section */
+        .png-section {
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+
+        .png-section img {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            border: 2px solid #ff9933;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .live-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff0000;
+            color: #fff;
+            padding: 5px 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+
+        /* War Text */
+        .war-text {
+            text-align: center;
+            padding: 8px;
+            color: #ff9933;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            max-width: 1200px;
+            margin: 8px auto;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: #222;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #138808;
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .stat-box h3 {
+            font-size: 1.2em;
+            color: #ff9933;
+        }
+
+        /* Share Button and Text Container */
+        .share-container {
+            text-align: center; /* To center the button and text */
+            margin: 25px auto 15px auto; /* Increased top margin to push it down, added bottom margin */
+            max-width: 400px; /* Increased container width to accommodate larger button/text */
+        }
+
+
+        /* Share Button (Size and Roundness kept from previous request) */
+        .share-btn {
+            display: inline-flex; /* Use inline-flex to keep it block-like but centered by parent */
+            align-items: center;
+            justify-content: center;
+            padding: 18px 60px; /* Size from previous request */
+            font-size: 1.6em; /* Size from previous request */
+            color: #fff;
+            border: none;
+            border-radius: 50px; /* Made corners round as per previous request */
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            background: #25D366; /* WhatsApp green */
+            margin: 0; /* Remove margin: auto; let container center */
+        }
+
+        .share-btn i {
+            margin-right: 12px; /* Spacing from previous request */
+            font-size: 1.8em; /* Size from previous request */
+        }
+
+        .share-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Text below share button (1.5x size of previous 1.2em, Orange) */
+        .share-text {
+            font-size: 1.8em; /* 1.5x of previous 1.2em */
+            font-weight: bold; /* Boldness kept from previous request */
+            color: #ff9933; /* Changed color to orange as requested */
+            margin-top: 15px; /* Increased space between button and text */
+            line-height: 1.2; /* Improve readability for large text */
+        }
+
+
+        /* Animation for Counts */
+        .count {
+            display: inline-block;
+            transition: all 0.5s ease;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+             /* Ad Container on Mobile */
+            .ad-container {
+                 max-width: 100%; /* Allow ad container to take full width on small screens */
+                 margin: 10px auto; /* Adjust margin */
+            }
+
+            .war-text {
+                font-size: 1.4em;
+            }
+
+            .stat-box h3 {
+                font-size: 1em;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .stat-box {
+                max-width: 100%;
+            }
+
+            .share-container {
+                 margin: 20px auto 10px auto; /* Adjust margin for mobile */
+                 max-width: 90%; /* Allow wider container on mobile */
+            }
+
+            /* Share Button Mobile (Size and Roundness kept from previous request) */
+            .share-btn {
+                padding: 15px 50px; /* Size from previous request */
+                font-size: 1.4em; /* Size from previous request */
+                border-radius: 50px; /* Keep corners round */
+            }
+
+            .share-btn i {
+                font-size: 1.6em; /* Size from previous request */
+            }
+
+             /* Text below share button Mobile (1.5x size of previous 1.1em, Orange) */
+             .share-text {
+                font-size: 1.65em; /* 1.5x of previous 1.1em. Using 1.65em for accuracy */
+                margin-top: 12px; /* Space from previous request */
+                line-height: 1.2; /* Improve readability */
+            }
+
+            .live-indicator {
+                font-size: 1em;
+                padding: 5px 10px;
+                top: 15px;
+                right: 15px;
+            }
+        }
+         @media (max-width: 480px) {
+             /* Further adjustments for very small screens if needed */
+             .share-container {
+                 max-width: 95%; /* Allow even wider on very small screens */
+             }
+             /* Share Button Very Small Mobile (Size and Roundness kept from previous request) */
+             .share-btn {
+                 padding: 12px 40px; /* Size from previous request */
+                 font-size: 1.3em; /* Size from previous request */
+             }
+              .share-btn i {
+                font-size: 1.5em; /* Size from previous request */
+            }
+            /* Text below share button Very Small Mobile (1.5x size of previous 1em, Orange) */
+             .share-text {
+                 font-size: 1.5em; /* 1.5x of previous 1em */
+                 margin-top: 10px; /* Space from previous request */
+                 line-height: 1.2; /* Improve readability */
+             }
+         }
+    </style>
+</head>
+<body>
+
+    <!-- Top Ad Banner (468x60) -->
+    <div class="ad-container">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '8a8ffc5c0935f074fbf95d0269cc477d',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/8a8ffc5c0935f074fbf95d0269cc477d/invoke.js"></script>
+    </div>
+
+    <!-- Indian Army PNG -->
+    <section class="png-section">
+        <div class="live-indicator">LIVE</div>
+        <img src="Indian_army.png" alt="Indian Army PNG" onerror="this.src='https://via.placeholder.com/600x300?text=Image+Not+Found';">
+    </section>
+
+    <!-- War Text -->
+    <div class="war-text">युद्ध का आगाज़ हो चुका है – क्या आप भारत के साथ हैं?</div>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-box">
+            <h3>Missiles Launched: <span class="count" id="missiles">0</span></h3>
+        </div>
+        <div class="stat-box">
+            <h3>Army Units: <span class="count" id="army">0</span></h3>
+        </div>
+        <div class="stat-box">
+            <h3>Fighter Jets: <span class="count" id="jets">0</span></h3>
+        </div>
+    </section>
+
+     <!-- Ad Banner (468x60) before Share Button -->
+    <div class="ad-container">
+         <script type="text/javascript">
+            atOptions = {
+                'key' : '8a8ffc5c0935f074fbf95d0269cc477d',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/8a8ffc5c0935f074fbf95d0269cc477d/invoke.js"></script>
+    </div>
+
+
+    <!-- Share Button and Text -->
+    <div class="share-container">
+        <button class="share-btn" onclick="sharePage()">
+            <i class="fab fa-whatsapp"></i> WhatsApp पर शेयर करें
+        </button>
+        <p class="share-text">सभी जनता में शेयर करके हौसला बढ़ाएं</p>
+    </div>
+
+
+    <script>
+        // Stats Updates
+        let missileCount = 0;
+        let armyCount = 0;
+        let jetCount = 0;
+
+        function updateStats() {
+            missileCount += Math.floor(Math.random() * 3); // Increase by 0-2
+            armyCount += Math.floor(Math.random() * 5); // Increase by 0-4
+            jetCount += Math.floor(Math.random() * 2); // Increase by 0-1
+
+            animateCount('missiles', missileCount);
+            animateCount('army', armyCount);
+            animateCount('jets', jetCount);
+        }
+
+        function animateCount(elementId, target) {
+            const element = document.getElementById(elementId);
+            const current = parseInt(element.textContent) || 0;
+            if (current < target) {
+                element.textContent = current + 1;
+                setTimeout(() => animateCount(elementId, target), 50);
+            } else {
+                element.textContent = target;
+            }
+        }
+
+        updateStats();
+        setInterval(updateStats, 3000); // Update stats every 3 seconds
+
+
+        // Share Functionality
+        function sharePage() {
+            const shareData = {
+                title: 'LIVE MISSION: DEFEND INDIA',
+                text: 'भारत के साथ खड़े हों! जय हिंद! 🇮🇳 LIVE MISSION: DEFEND INDIA देखें और इसे सभी जनता में शेयर करके हौसला बढ़ाएं!',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                // Use Web Share API if available (opens native share sheet with app options)
+                navigator.share(shareData).catch(err => {
+                    console.error('Web Share failed:', err);
+                    // Fallback if native share fails or is not supported
+                     fallbackShare(shareData);
+                });
+            } else {
+                // Fallback for browsers/devices that don't support Web Share API
+                 fallbackShare(shareData);
+            }
+        }
+
+        function fallbackShare(shareData) {
+            // Attempt to use a WhatsApp specific URL scheme as a common fallback
+            const shareText = encodeURIComponent(`${shareData.text} ${shareData.url}`);
+            const whatsappUrl = `whatsapp://send?text=${shareText}`;
+
+            // Check if WhatsApp URL scheme is likely to work (Basic check for mobile)
+            if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+                 window.location.href = whatsappUrl;
+            } else {
+                // For desktop or if URL scheme doesn't work, prompt to copy
+                 promptCopyLink(shareData.url);
+            }
+        }
+
+        function promptCopyLink(url) {
+             alert('Sharing is not fully supported on this device/browser. Please copy the link to share: ' + url);
+             // You could also implement a copy-to-clipboard button or feature here
+        }
+
+    </script>
+</body>
+</html>
+
+<script type="text/javascript">
+	atOptions = {
+		'key' : '8a8ffc5c0935f074fbf95d0269cc477d',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/8a8ffc5c0935f074fbf95d0269cc477d/invoke.js"></script>
